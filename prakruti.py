@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
 
 # Define the questions and options
 questions = {
@@ -45,13 +43,6 @@ dosha_scores = {
     "KAPHA": 0
 }
 
-# Define custom colors for each dosha
-colors = {
-    "VATA": "red",
-    "PITTA": "green",
-    "KAPHA": "blue"
-}
-
 # Main Streamlit app
 if __name__ == '__main__':
     st.title("Ayurvedic Dosha Quiz")
@@ -82,10 +73,6 @@ if __name__ == '__main__':
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
-    # Create a bar chart with custom colors using Plotly
-    doshas = list(dosha_scores.keys())
-    scores = list(dosha_scores.values())
-    
-    fig = px.bar(x=doshas, y=scores, text=scores, labels={"x": "Doshas", "y": "Scores"}, color=doshas, color_discrete_map=colors)
-    
-    st.plotly_chart(fig)
+    # Create a bar plot for dosha scores
+    dosha_df = pd.DataFrame(list(dosha_scores.items()), columns=["Dosha", "Score"])
+    st.bar_chart(dosha_df.set_index("Dosha"))
