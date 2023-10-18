@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pandas as pd
 # Define the questions and options
 questions = {
     "Body size": ["Slim", "Medium", "Large"],
