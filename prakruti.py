@@ -45,6 +45,13 @@ dosha_scores = {
     "KAPHA": 0
 }
 
+# Define custom colors for each dosha
+color_dict = {
+    "VATA": "red",
+    "PITTA": "green",
+    "KAPHA": "blue"
+}
+
 # Main Streamlit app
 if __name__ == '__main__':
     st.title("Ayurvedic Dosha Quiz")
@@ -75,6 +82,8 @@ if __name__ == '__main__':
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
-    # Create a bar plot for dosha scores
+    # Create a bar plot for dosha scores with custom colors
     dosha_df = pd.DataFrame(list(dosha_scores.items()), columns=["Dosha", "Score"])
-    st.bar_chart(dosha_df.set_index("Dosha"))
+    dosha_df.set_index("Dosha", inplace=True)
+    dosha_df["Color"] = dosha_df.index.map(color_dict)
+    st.bar_chart(dosha_df["Score"], use_container_width=True, color=dosha_df["Color"])
