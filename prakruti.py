@@ -1,4 +1,6 @@
 import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Define the questions and options
 questions = {
@@ -72,3 +74,14 @@ if __name__ == '__main__':
     # Determine the dominant dosha
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
+
+    # Create a bar chart to visualize the dosha scores
+    doshas = list(dosha_scores.keys())
+    scores = list(dosha_scores.values())
+    
+    fig, ax = plt.subplots()
+    ax.bar(doshas, scores)
+    ax.set_ylabel('Scores')
+    ax.set_title('Dosha Scores')
+
+    st.pyplot(fig)
