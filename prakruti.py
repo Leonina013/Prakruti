@@ -74,5 +74,8 @@ if __name__ == '__main__':
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
-    # Create a bar plot for dosha scores using Streamlit
-    st.bar_chart(dosha_scores)
+    # Convert dosha_scores to a DataFrame for plotting
+    dosha_df = pd.DataFrame(dosha_scores.items(), columns=["Dosha", "Score"])
+
+    # Create a bar chart using Streamlit
+    st.bar_chart(dosha_df.set_index("Dosha"))
