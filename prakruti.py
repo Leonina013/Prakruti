@@ -47,32 +47,41 @@ dosha_scores = {
 def random_color():
     return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
 
-# Main Streamlit app
-if __name__ == '__main__':
-    st.title("Ayurvedic Dosha Quiz")
+# Set the page title and a starting index
+st.title("Ayurvedic Dosha Quiz")
+question_index = 0
 
-    for question, options in questions.items():
-        # Generate a random background color
-        background_color = random_color()
-        st.markdown(f'<style>body{{background-color: rgb{background_color};}}</style>', unsafe_allow_html=True)
+# Check if the last question has been answered
+if question_index < len(questions):
+    question, options = list(questions.items())[question_index]
 
-        # Display the question
-        st.write(f"**{question}**")
+    # Generate a random background color
+    background_color = random_color()
+    st.markdown(f'<style>body{{background-color: rgb{background_color};}}</style>', unsafe_allow_html=True)
 
-        # Use radio buttons to select an option
-        user_answer = st.radio(f"Select an option for {question}", options)
+    # Display the question
+    st.write(f"**{question}**")
 
-        if user_answer:
-            # Update dosha scores based on the user's selection
-            if user_answer == options[0]:
-                dosha_scores["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores["KAPHA"] += 1
+    # Use radio buttons to select an option
+    user_answer = st.radio(f"Select an option for {question}", options)
 
-            st.success(f'You selected: {user_answer}')
+    if user_answer:
+        # Update dosha scores based on the user's selection
+        if user_answer == options[0]:
+            dosha_scores["VATA"] += 1
+        elif user_answer == options[1]:
+            dosha_scores["PITTA"] += 1
+        elif user_answer == options[2]:
+            dosha_scores["KAPHA"] += 1
 
+        st.success(f'You selected: {user_answer}')
+
+    # Show a "Next" button to move to the next question
+    if st.button("Next"):
+        question_index += 1
+
+# If all questions have been answered, display results
+if question_index >= len(questions):
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
