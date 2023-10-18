@@ -46,37 +46,34 @@ dosha_scores = {
 # Main Streamlit app
 st.title("Ayurvedic Dosha Quiz")
 
+# Initialize a question index to keep track of the current question
+st.session_state.question_index = 0
+
 # Create a form to display the questions and answers
 with st.form("quiz_form"):
-    st.write(f"**{list(questions.keys())[0]}**")
-    user_answer = st.radio("Select an option:", questions[list(questions.keys())[0]])
-    
-    # Update dosha scores based on the user's selection
-    if user_answer == questions[list(questions.keys())[0]][0]:
-        dosha_scores["VATA"] += 1
-    elif user_answer == questions[list(questions.keys())[0]][1]:
-        dosha_scores["PITTA"] += 1
-    else:
-        dosha_scores["KAPHA"] += 1
-
-    st.write(f'You selected: {user_answer}')
-    
-    st.form_submit_button("Next")
-
-# Remove the answered question
-questions.pop(list(questions.keys())[0])
-
-# Show the remaining questions
-if len(questions) > 0:
-    st.write("Next Question:")
-    for question, options in questions.items():
+    if st.session_state.question_index < len(questions):
+        question, options = list(questions.items())[st.session_state.question_index]
         st.write(f"**{question}**")
-        st.radio("Select an option:", options)
-else:
+        user_answer = st.radio("Select an option:", options)
+
+        if st.form_submit_button("Next") and user_answer:
+            # Update dosha scores based on the user's selection
+            if user_answer == options[0]:
+                dosha_scores["VATA"] += 1
+            elif user_answer == options[1]:
+                dosha_scores["PITTA"] += 1
+            elif user_answer == options[2]:
+                dosha_scores["KAPHA"] += 1
+
+            st.success(f'You selected: {user_answer}')
+            st.session_state.question_index += 1
+
+# Display the final scores and dominant dosha
+if st.session_state.question_index >= len(questions):
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
-    
+
     # Determine the dominant dosha
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
