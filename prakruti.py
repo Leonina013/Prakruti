@@ -78,5 +78,5 @@ if __name__ == '__main__':
         st.write(f"{dosha}: {score}")
 
     # Determine the dominant dosha
-    dominant_dosha = max(dosha_scores, key=dosha_scores.get)
+    dominant dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
