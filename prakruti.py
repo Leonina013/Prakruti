@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
+import plotly.express as px
 
 # Define the questions and options
 questions = {
@@ -83,16 +82,10 @@ if __name__ == '__main__':
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
-    # Create a bar chart with custom colors
+    # Create a bar chart with custom colors using Plotly
     doshas = list(dosha_scores.keys())
     scores = list(dosha_scores.values())
-
-    plt.figure(figsize=(8, 6))
-    plt.bar(doshas, scores, color=[colors[dosha] for dosha in doshas])
-    plt.xlabel("Doshas")
-    plt.ylabel("Scores")
-    plt.title("Dosha Scores")
-    st.pyplot(plt)
-    dosha_df.set_index("Dosha", inplace=True)
-    dosha_df["Color"] = dosha_df.index.map(color_dict)
-    st.bar_chart(dosha_df["Score"], use_container_width=True, color=dosha_df["Color"])
+    
+    fig = px.bar(x=doshas, y=scores, text=scores, labels={"x": "Doshas", "y": "Scores"}, color=doshas, color_discrete_map=colors)
+    
+    st.plotly_chart(fig)
