@@ -49,26 +49,29 @@ st.title("Ayurvedic Dosha Quiz")
 # Initialize a question index to keep track of the current question
 st.session_state.question_index = 0
 
-while st.session_state.question_index < len(questions):
+# Function to display and process a single question
+def display_question():
     question, options = list(questions.items())[st.session_state.question_index]
-
     st.write(f"**{question}**")
     user_answer = st.radio("Select an option:", options)
+    
+    # Update dosha scores based on the user's selection
+    if user_answer == options[0]:
+        dosha_scores["VATA"] += 1
+    elif user_answer == options[1]:
+        dosha_scores["PITTA"] += 1
+    elif user_answer == options[2]:
+        dosha_scores["KAPHA"] += 1
+    
+    return user_answer
 
-    if user_answer:
-        # Update dosha scores based on the user's selection
-        if user_answer == options[0]:
-            dosha_scores["VATA"] += 1
-        elif user_answer == options[1]:
-            dosha_scores["PITTA"] += 1
-        elif user_answer == options[2]:
-            dosha_scores["KAPHA"] += 1
+if st.session_state.question_index < len(questions):
+    user_answer = display_question()
 
-        st.success(f'You selected: {user_answer}')
+    # Custom "Next" button to navigate through questions
+    if st.button("Next") and user_answer:
         st.session_state.question_index += 1
-
-# Display the final scores and dominant dosha
-if st.session_state.question_index >= len(questions):
+else:
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
