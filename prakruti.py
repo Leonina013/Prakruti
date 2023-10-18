@@ -45,14 +45,14 @@ dosha_scores = {
 
 # Main Streamlit app
 if __name__ == '__main__':
-    st.title("Ayurvedic Dosha Quiz")
+    st.title("Prakruti Constitution Quiz")
 
     for question, options in questions.items():
         # Display the question
         st.write(f"**{question}**")
 
         # Use radio buttons to select an option
-        user_answer = st.radio(f"Select an option for {question}", options)
+        user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
 
         if user_answer:
             # Update dosha scores based on the user's selection
@@ -63,7 +63,7 @@ if __name__ == '__main__':
             elif user_answer == options[2]:
                 dosha_scores["KAPHA"] += 1
 
-            st.success(f'You selected: {user_answer}')
+            st.success(f'Your answer is: {user_answer}')
 
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
