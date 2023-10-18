@@ -49,27 +49,30 @@ st.title("Ayurvedic Dosha Quiz")
 # Initialize a question index to keep track of the current question
 st.session_state.question_index = 0
 
-# Create a form to display the questions and answers
-with st.form("quiz_form"):
-    if st.session_state.question_index < len(questions):
-        question, options = list(questions.items())[st.session_state.question_index]
-        st.write(f"**{question}**")
-        user_answer = st.radio("Select an option:", options)
+# Function to display the question and options
+def display_question():
+    question, options = list(questions.items())[st.session_state.question_index]
+    st.write(f"**{question}**")
+    user_answer = st.radio("Select an option:", options)
 
-        if st.form_submit_button("Next") and user_answer:
-            # Update dosha scores based on the user's selection
-            if user_answer == options[0]:
-                dosha_scores["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores["KAPHA"] += 1
+    # Update dosha scores based on the user's selection
+    if user_answer == options[0]:
+        dosha_scores["VATA"] += 1
+    elif user_answer == options[1]:
+        dosha_scores["PITTA"] += 1
+    elif user_answer == options[2]:
+        dosha_scores["KAPHA"] += 1
 
-            st.success(f'You selected: {user_answer}')
-            st.session_state.question_index += 1
+    st.success(f'You selected: {user_answer}')
 
-# Display the final scores and dominant dosha
-if st.session_state.question_index >= len(questions):
+# Display the current question
+if st.session_state.question_index < len(questions):
+    display_question()
+
+    # Custom "Next" button to navigate through questions
+    if st.button("Next") and st.session_state.question_index < len(questions) - 1:
+        st.session_state.question_index += 1
+elif st.session_state.question_index == len(questions):
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
