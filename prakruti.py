@@ -75,13 +75,16 @@ if __name__ == '__main__':
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
-    # Create a bar chart to visualize the dosha scores
+    # Generate a plot of the dosha scores
     doshas = list(dosha_scores.keys())
     scores = list(dosha_scores.values())
-    
+
+    # Create a bar chart using Matplotlib
     fig, ax = plt.subplots()
     ax.bar(doshas, scores)
-    ax.set_ylabel('Scores')
-    ax.set_title('Dosha Scores')
+    ax.set_xlabel("Dosha")
+    ax.set_ylabel("Score")
+    ax.set_title("Dosha Scores")
 
+    # Display the Matplotlib plot using st.pyplot()
     st.pyplot(fig)
