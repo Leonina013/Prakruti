@@ -43,49 +43,40 @@ dosha_scores = {
     "KAPHA": 0
 }
 
-# Define a function to generate a random RGB color
-def random_color():
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
+# Main Streamlit app
+if __name__ == '__main__':
+    st.title("Prakruti Questionnaire")
+    question_number = 0  # Initialize question number
 
-# Set the page title and a starting index
-st.title("Ayurvedic Dosha Quiz")
-question_index = 0
+    if question_number < len(questions):
+        question = list(questions.keys())[question_number]
+        options = questions[question]
 
-# Check if the last question has been answered
-if question_index < len(questions):
-    question, options = list(questions.items())[question_index]
+        # Display the question
+        st.write(f"**{question}**")
 
-    # Generate a random background color
-    background_color = random_color()
-    st.markdown(f'<style>body{{background-color: rgb{background_color};}}</style>', unsafe_allow_html=True)
+        # Use radio buttons to select an option
+        user_answer = st.radio(f"Select an option for {question}", options)
 
-    # Display the question
-    st.write(f"**{question}**")
+        if user_answer:
+            # Update dosha scores based on the user's selection
+            if user_answer == options[0]:
+                dosha_scores["VATA"] += 1
+            elif user_answer == options[1]:
+                dosha_scores["PITTA"] += 1
+            elif user_answer == options[2]:
+                dosha_scores["KAPHA"] += 1
 
-    # Use radio buttons to select an option
-    user_answer = st.radio(f"Select an option for {question}", options)
+            st.success(f'You selected: {user_answer}')
+            question_number += 1  # Move to the next question
+        else:
+            st.warning("Please select an option before moving to the next question.")
 
-    if user_answer:
-        # Update dosha scores based on the user's selection
-        if user_answer == options[0]:
-            dosha_scores["VATA"] += 1
-        elif user_answer == options[1]:
-            dosha_scores["PITTA"] += 1
-        elif user_answer == options[2]:
-            dosha_scores["KAPHA"] += 1
+    if question_number == len(questions):
+        st.write("Your Dosha Scores:")
+        for dosha, score in dosha_scores.items():
+            st.write(f"{dosha}: {score}")
 
-        st.success(f'You selected: {user_answer}')
-
-    # Show a "Next" button to move to the next question
-    if st.button("Next"):
-        question_index += 1
-
-# If all questions have been answered, display results
-if question_index >= len(questions):
-    st.write("Your Dosha Scores:")
-    for dosha, score in dosha_scores.items():
-        st.write(f"{dosha}: {score}")
-
-    # Determine the dominant dosha
-    dominant_dosha = max(dosha_scores, key=dosha_scores.get)
-    st.write(f"Your Dominant Dosha: {dominant_dosha}")
+        # Determine the dominant dosha
+        dominant_dosha = max(dosha_scores, key=dosha_scores.get)
+        st.write(f"Your Dominant Dosha: {dominant_dosha}")
