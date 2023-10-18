@@ -45,7 +45,7 @@ dosha_scores = {
 
 # Main Streamlit app
 if __name__ == '__main__':
-    st.title("Ayurvedic Dosha Quiz")
+    st.title("Prakruti Assessment")
 
     for question, options in questions.items():
         # Display the question
