@@ -43,11 +43,23 @@ dosha_scores = {
     "KAPHA": 0
 }
 
+# Define custom CSS to change the background color
+custom_css = f"""
+<style>
+body {{
+    background-color: rgb({random.randint(0, 255)}, {random.randint(0, 255)}, {random.randint(0, 255)});
+}}
+</style>
+"""
+
 # Main Streamlit app
 if __name__ == '__main__':
-    st.title("Prakruti Assessment")
+    st.title("Ayurvedic Dosha Quiz")
 
     for question, options in questions.items():
+        # Add custom CSS to change the background color
+        st.markdown(custom_css, unsafe_allow_html=True)
+
         # Display the question
         st.write(f"**{question}**")
 
