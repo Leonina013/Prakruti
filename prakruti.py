@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-# Define the questions and options
+
 questions = {
     "Body size": ["Slim", "Medium", "Large"],
     "Body weight": ["Low", "Medium", "Overweight"],
@@ -33,29 +33,28 @@ questions = {
     "Dreams": ["Quick, active, many, fearful", "Fiery, war, violence", "Lakes, snow, romantic"],
     "Sleep": ["Scanty, broken up, sleeplessness", "Little but sound", "Deep, prolonged"],
     "Speech": ["Rapid, unclear", "Sharp, penetrating", "Slow, monotonous"],
-    "Financial": ["Poor, spends on trifles", "Spends money on luxuries", "Rich, good money preserver"]
+    "Finances": ["Poor, spends on trifles", "Spends money on luxuries", "Rich, good money preserver"]
 }
 
-# Initialize dosha score counters
 dosha_scores = {
     "VATA": 0,
     "PITTA": 0,
     "KAPHA": 0
 }
 
-# Main Streamlit app
+
 if __name__ == '__main__':
     st.title("Prakruti Constitution Quiz")
 
     for question, options in questions.items():
-        # Display the question
+       
         st.write(f"**{question}**")
 
-        # Use radio buttons to select an option
+        
         user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
 
         if user_answer:
-            # Update dosha scores based on the user's selection
+           
             if user_answer == options[0]:
                 dosha_scores["VATA"] += 1
             elif user_answer == options[1]:
@@ -69,7 +68,7 @@ if __name__ == '__main__':
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
 
-    # Determine the dominant dosha
+ 
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
 
