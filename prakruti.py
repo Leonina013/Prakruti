@@ -45,13 +45,9 @@ dosha_scores = {
 
 # Main Streamlit app
 if __name__ == '__main__':
-    st.title("Prakruti Questionnaire")
-    question_number = 0  # Initialize question number
+    st.title("Ayurvedic Dosha Quiz")
 
-    while question_number < len(questions):
-        question = list(questions.keys())[question_number]
-        options = questions[question]
-
+    for question, options in questions.items():
         # Display the question
         st.write(f"**{question}**")
 
@@ -68,13 +64,6 @@ if __name__ == '__main__':
                 dosha_scores["KAPHA"] += 1
 
             st.success(f'You selected: {user_answer}')
-            question_number += 1  # Move to the next question
-
-        if question_number < len(questions):
-            if st.button("Next"):
-                pass  # Clicking "Next" will proceed to the next question
-        else:
-            st.button("Finish")  # Change "Next" to "Finish" for the last question
 
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
