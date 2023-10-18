@@ -70,7 +70,7 @@ if __name__ == '__main__':
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
 
-    # Create a Pandas DataFrame
+    # Convert dosha_scores into a Pandas DataFrame
     dosha_df = pd.DataFrame(list(dosha_scores.items()), columns=["Dosha", "Score"])
 
     # Display a bar chart of dosha scores
