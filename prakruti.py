@@ -45,7 +45,7 @@ dosha_scores = {
 
 # Define a function to generate a random RGB color
 def random_color():
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
 
 # Main Streamlit app
 if __name__ == '__main__':
@@ -78,5 +78,5 @@ if __name__ == '__main__':
         st.write(f"{dosha}: {score}")
 
     # Determine the dominant dosha
-    dominant dosha = max(dosha_scores, key=dosha_scores.get)
+    dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
