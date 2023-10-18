@@ -46,37 +46,21 @@ dosha_scores = {
 # Main Streamlit app
 st.title("Ayurvedic Dosha Quiz")
 
-# Initialize a question index to keep track of the current question
-st.session_state.question_index = 0
-
-# Create a button to start the quiz
-if st.session_state.question_index == 0 and st.button("Start Quiz"):
-    st.session_state.question_index += 1
-
-# Check if there are more questions to display
-if st.session_state.question_index < len(questions):
-    question, options = list(questions.items())[st.session_state.question_index]
-    st.write(f"**{question}**")
-    
-    # Use radio buttons to select an option
-    user_answer = st.radio(f"Select an option for {question}", options)
-    
-    if user_answer:
+# Create a form to display the questions
+with st.form("quiz_form"):
+    st.write(f"**{list(questions.keys())[0]}**")
+    user_answer = st.radio("Select an option:", questions[list(questions.keys())[0]])
+    if st.form_submit_button("Next") and user_answer:
         # Update dosha scores based on the user's selection
-        if user_answer == options[0]:
+        if user_answer == questions[list(questions.keys())[0]][0]:
             dosha_scores["VATA"] += 1
-        elif user_answer == options[1]:
+        elif user_answer == questions[list(questions.keys())[0]][1]:
             dosha_scores["PITTA"] += 1
-        elif user_answer == options[2]:
+        else:
             dosha_scores["KAPHA"] += 1
-            
-        st.success(f'You selected: {user_answer}')
-        
-        # Increment the question index
-        st.session_state.question_index += 1
-        
+
 # Display the final scores and dominant dosha
-if st.session_state.question_index >= len(questions):
+if len(questions) == 0:
     st.write("Your Dosha Scores:")
     for dosha, score in dosha_scores.items():
         st.write(f"{dosha}: {score}")
@@ -84,3 +68,17 @@ if st.session_state.question_index >= len(questions):
     # Determine the dominant dosha
     dominant_dosha = max(dosha_scores, key=dosha_scores.get)
     st.write(f"Your Dominant Dosha: {dominant_dosha}")
+
+# Remove the answered question
+if user_answer:
+    questions.pop(list(questions.keys())[0])
+
+# Show the remaining questions
+if len(questions) > 0:
+    st.text("---------------------------------------------------------")
+    st.write("Next Question:")
+    st.text("---------------------------------------------------------")
+    for question, options in questions.items():
+        st.text("---------------------------------------------------------")
+        st.write(f"**{question}**")
+        break
