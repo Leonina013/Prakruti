@@ -86,12 +86,18 @@ dosha_scores_vikruti = {
 }
 
 if __name__ == '__main__':
+    st.set_page_config(
+        page_title="Prakruti & Vikruti Constitution Quiz",
+        page_icon="✨",
+        layout="wide"
+    )
+
     st.title("Prakruti & Vikruti Constitution Quiz")
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.write("### Prakruti Observation")
+        st.write("## Prakruti Observation")
         for question, options in questions_prakruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
@@ -112,7 +118,7 @@ if __name__ == '__main__':
         st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
     with col2:
-        st.write("### Vikruti Observation")
+        st.write("## Vikruti Observation")
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
