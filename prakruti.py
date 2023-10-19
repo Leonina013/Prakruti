@@ -122,6 +122,9 @@ if __name__ == '__main__':
         prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
         st.bar_chart(prakruti_df.set_index("Dosha"))
 
+    # Add a line between the columns
+    st.markdown("---")
+
     with col2:
         st.write("## Vikruti Observation")
         st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
@@ -147,3 +150,4 @@ if __name__ == '__main__':
         # Create a bar plot for vikruti dosha scores
         vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
         st.bar_chart(vikruti_df.set_index("Dosha"))
+
