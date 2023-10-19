@@ -88,45 +88,49 @@ dosha_scores_vikruti = {
 if __name__ == '__main__':
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    st.write("### Prakruti Observation")
-    for question, options in questions_prakruti.items():
-        st.write(f"**{question}**")
-        user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
-        if user_answer:
-            if user_answer == options[0]:
-                dosha_scores_prakruti["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores_prakruti["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores_prakruti["KAPHA"] += 1
-            st.success(f'Your answer is: {user_answer}')
+    col1, col2 = st.columns(2)
 
-    st.write("### Vikruti Observation")
-    for question, options in questions_vikruti.items():
-        st.write(f"**{question}**")
-        user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
-        if user_answer:
-            if user_answer == options[0]:
-                dosha_scores_vikruti["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores_vikruti["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores_vikruti["KAPHA"] += 1
-            st.success(f'Your answer is: {user_answer}')
+    with col1:
+        st.write("### Prakruti Observation")
+        for question, options in questions_prakruti.items():
+            st.write(f"**{question}**")
+            user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
+            if user_answer:
+                if user_answer == options[0]:
+                    dosha_scores_prakruti["VATA"] += 1
+                elif user_answer == options[1]:
+                    dosha_scores_prakruti["PITTA"] += 1
+                elif user_answer == options[2]:
+                    dosha_scores_prakruti["KAPHA"] += 1
+                st.success(f'Your answer is: {user_answer}')
 
-    st.write("### Prakruti Dosha Scores:")
-    for dosha, score in dosha_scores_prakruti.items():
-        st.write(f"{dosha}: {score}")
+        st.write("### Prakruti Dosha Scores:")
+        for dosha, score in dosha_scores_prakruti.items():
+            st.write(f"{dosha}: {score}")
 
-    st.write("### Vikruti Dosha Scores:")
-    for dosha, score in dosha_scores_vikruti.items():
-        st.write(f"{dosha}: {score}")
+        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
+        st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
-    prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-    vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
+    with col2:
+        st.write("### Vikruti Observation")
+        for question, options in questions_vikruti.items():
+            st.write(f"**{question}**")
+            user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
+            if user_answer:
+                if user_answer == options[0]:
+                    dosha_scores_vikruti["VATA"] += 1
+                elif user_answer == options[1]:
+                    dosha_scores_vikruti["PITTA"] += 1
+                elif user_answer == options[2]:
+                    dosha_scores_vikruti["KAPHA"] += 1
+                st.success(f'Your answer is: {user_answer}')
 
-    st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
-    st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
+        st.write("### Vikruti Dosha Scores:")
+        for dosha, score in dosha_scores_vikruti.items():
+            st.write(f"{dosha}: {score}")
+
+        vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
+        st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
     # Create a bar plot for prakruti dosha scores
     prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
