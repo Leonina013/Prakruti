@@ -118,6 +118,10 @@ if __name__ == '__main__':
         prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
         st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
+        # Create a bar plot for prakruti dosha scores
+        prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
+        st.bar_chart(prakruti_df.set_index("Dosha"))
+
     with col2:
         st.write("## Vikruti Observation")
         st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
@@ -140,10 +144,6 @@ if __name__ == '__main__':
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
         st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
-    # Create a bar plot for prakruti dosha scores
-    prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
-    st.bar_chart(prakruti_df.set_index("Dosha"))
-
-    # Create a bar plot for vikruti dosha scores
-    vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
-    st.bar_chart(vikruti_df.set_index("Dosha"))
+        # Create a bar plot for vikruti dosha scores
+        vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
+        st.bar_chart(vikruti_df.set_index("Dosha"))
