@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    col1, col2 = st.columns(2)
+    col1, _, col2 = st.columns(3)  # Add a blank column in the middle for the separator
 
     with col1:
         st.write("## Prakruti Observation")
@@ -122,12 +122,12 @@ if __name__ == '__main__':
         prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
         st.bar_chart(prakruti_df.set_index("Dosha"))
 
-    # Add a line between the columns
-    st.markdown("---")
+    with col2:
+        pass  # This is the separator column; no content
 
     with col2:
         st.write("## Vikruti Observation")
-        st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
+        st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
@@ -150,4 +150,3 @@ if __name__ == '__main__':
         # Create a bar plot for vikruti dosha scores
         vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
         st.bar_chart(vikruti_df.set_index("Dosha"))
-
