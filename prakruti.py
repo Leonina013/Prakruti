@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    col1, _, col2 = st.columns(3)  # Add a blank column in the middle for the separator
+    col1, col2 = st.columns(2)
 
     with col1:
         st.write("## Prakruti Observation")
@@ -123,11 +123,8 @@ if __name__ == '__main__':
         st.bar_chart(prakruti_df.set_index("Dosha"))
 
     with col2:
-        pass  # This is the separator column; no content
-
-    with col2:
         st.write("## Vikruti Observation")
-        st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
+        st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
