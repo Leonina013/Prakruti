@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    qr_code_url = "prak.png"
+    qr_code_url = "https://github.com/Leonina013/Prakruti/tree/main"
     st.sidebar.image(qr_code_url, use_container_width=True)
     
     col1, col2 = st.columns(2)
