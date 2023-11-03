@@ -95,7 +95,7 @@ if __name__ == '__main__':
     st.title("Prakruti & Vikruti Constitution Quiz")
 
     qr_code_url = "https://https://github.com//Leonina013/Prakruti/main/prak.png"  # Replace with the actual URL of your PNG QR code image
-    st.sidebar.markdown(f'<iframe src="{qr_code_url}" width="200" height="200"></iframe>', unsafe_allow_html=True)
+    st.sidebar.markdown(f'<img src="{qr_code_url}" width="200">', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
 
