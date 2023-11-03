@@ -94,8 +94,12 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    qr_code_url = "https://i.imgur.com/7KSTJFb.png" 
-    st.sidebar.image(qr_code_url, use_container_width=True)
+    st.sidebar.image(
+    "https://i.imgur.com/7KSTJFb.png",
+    width=200,  # You can adjust the width as needed
+)
+
+
     
     col1, col2 = st.columns(2)
 
@@ -150,3 +154,4 @@ if __name__ == '__main__':
       
         vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
         st.bar_chart(vikruti_df.set_index("Dosha"))
+
