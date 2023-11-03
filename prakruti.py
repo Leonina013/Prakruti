@@ -98,6 +98,7 @@ if __name__ == '__main__':
 
     with col1:
         st.write("## Prakruti Observation")
+        st.write("Fill these based on how you have felt throughout your life")
         for question, options in questions_prakruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
@@ -108,6 +109,7 @@ if __name__ == '__main__':
                     dosha_scores_prakruti["PITTA"] += 1
                 elif user_answer == options[2]:
                     dosha_scores_prakruti["KAPHA"] += 1
+                st.success(f'Your answer is: {user_answer}')
 
         st.write("### Prakruti Dosha Scores:")
         for dosha, score in dosha_scores_prakruti.items():
@@ -116,8 +118,13 @@ if __name__ == '__main__':
         prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
         st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
+       
+        prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
+        st.bar_chart(prakruti_df.set_index("Dosha"))
+
     with col2:
         st.write("## Vikruti Observation")
+        st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
             user_answer = st.radio(f"Select the option which fits best for the condition of your {question}", options)
@@ -128,6 +135,7 @@ if __name__ == '__main__':
                     dosha_scores_vikruti["PITTA"] += 1
                 elif user_answer == options[2]:
                     dosha_scores_vikruti["KAPHA"] += 1
+                st.success(f'Your answer is: {user_answer}')
 
         st.write("### Vikruti Dosha Scores:")
         for dosha, score in dosha_scores_vikruti.items():
@@ -136,26 +144,6 @@ if __name__ == '__main__':
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
         st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
-    with st.expander("Scan"):
-        st.write("Hover over the tab to see the QR code.")
-        
-        # Set the path for the local QR code image
-        qr_code_path = "qr_code.png"
-
-        # Check if the QR code image exists locally
-        if not os.path.isfile(qr_code_path):
-            # If it doesn't exist, download and save the image
-            qr_code_url = 'https://raw.githubusercontent.com/Leonina013/Prakruti/main/prak.png'
-            response = requests.get(qr_code_url)
-            with open(qr_code_path, 'wb') as f:
-                f.write(response.content)
-
-        # Load the locally stored QR code image
-        qr_code_image = Image.open(qr_code_path)
-
-        # Display the QR code image
-        st.image(qr_code_image, use_column_width=True)
-
-
-
-
+      
+        vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
+        st.bar_chart(vikruti_df.set_index("Dosha"))
