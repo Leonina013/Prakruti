@@ -94,8 +94,8 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    qr_code_url = "https://raw.githubusercontent.com/Leonina013/Prakruti/main/prak.svg"  
-    st.markdown(f'<img src="{qr_code_url}" width="100%">', unsafe_allow_html=True)
+    qr_code_url = "https://raw.githubusercontent.com/Leonina013/Prakruti/main/prak.png"  
+    st.image(qr_code_url, use_column_width=True)
 
     col1, col2 = st.columns(2)
 
