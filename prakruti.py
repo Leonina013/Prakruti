@@ -148,13 +148,5 @@ if __name__ == '__main__':
         vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
         st.bar_chart(vikruti_df.set_index("Dosha"))
 
- with st.expander("Scan"):
-        st.write("Hover over the tab to see the QR code.")
-        # Replace 'qr_code.png' with the actual filename of your QR code image.
-        qr_code_filename = 'qr_code.png'
 
-        # Load the QR code image
-        qr_code_image = Image.open(qr_code_filename)
 
-        # Display the QR code image
-        st.image(qr_code_image, use_column_width=True)
