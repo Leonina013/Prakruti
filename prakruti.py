@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    qr_code_url = "https://imgur.com/a/lqCsNtM" 
+    qr_code_url = "https://imgur.com/7KSTJFb" 
     st.sidebar.image(qr_code_url, use_container_width=True)
     
     col1, col2 = st.columns(2)
