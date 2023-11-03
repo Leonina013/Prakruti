@@ -139,7 +139,12 @@ if __name__ == '__main__':
     with st.expander("Scan"):
         st.write("Hover over the tab to see the QR code.")
         qr_code_url = 'https://raw.githubusercontent.com/Leonina013/Prakruti/main/prak.png'
-        qr_code_image = Image.open(qr_code_url)
+
+        # Fetch the image using requests
+        response = requests.get(qr_code_url)
+        qr_code_image = Image.open(BytesIO(response.content))
+
+        # Display the QR code image
         st.image(qr_code_image, use_column_width=True)
 
 
