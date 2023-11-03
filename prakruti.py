@@ -94,8 +94,8 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    qr_code_url = "https://drive.google.com/file/d/1WdnNz7MhaDWB5790FwoqSGm9LPVeje1b/view?usp=sharing"  # Replace with the actual URL of your PNG QR code image
-    st.sidebar.markdown(f'<img src="{qr_code_url}" width="200">', unsafe_allow_html=True)
+    qr_code_url = "https://imgur.com/a/lqCsNtM" 
+    st.sidebar.image(qr_code_url, use_container_width=True)
     
     col1, col2 = st.columns(2)
 
