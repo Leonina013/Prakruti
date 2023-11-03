@@ -94,11 +94,14 @@ if __name__ == '__main__':
 
     st.title("Prakruti & Vikruti Constitution Quiz")
 
-    st.sidebar.image(
-    "https://i.imgur.com/7KSTJFb.png",
-    width=300, 
-    caption="Scan to analyze your core Dosha",
+    st.sidebar.markdown(
+    f'<div style="display: flex; flex-direction: column; align-items: center;">'
+    f'<img src="https://i.imgur.com/7KSTJFb.png" alt="QR Code" width="400">'
+    f'<p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Scan to analyze your core Dosha</p>'
+    f'</div>',
+    unsafe_allow_html=True
 )
+
 
 
 
