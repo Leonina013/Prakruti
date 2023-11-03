@@ -96,8 +96,10 @@ if __name__ == '__main__':
 
     st.sidebar.image(
     "https://i.imgur.com/7KSTJFb.png",
-    width=200,  # You can adjust the width as needed
+    width=300, 
+    caption="Scan to analyze your core Dosha",
 )
+
 
 
     
