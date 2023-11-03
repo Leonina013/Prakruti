@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
     with st.expander("Scan"):
         st.write("Hover over the tab to see the QR code.")
-        qr_code_filename = 'qr_code.png'
+        qr_code_filename = 'prak.png'
         qr_code_image = Image.open(qr_code_filename)
         st.image(qr_code_image, use_column_width=True)
 
