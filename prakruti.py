@@ -106,76 +106,82 @@ if __name__ == '__main__':
 
 
     
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-with col1:
-    st.write("## Prakruti Observation")
-    st.write("Fill these based on how you have felt throughout your life")
-    user_answers_prakruti = {}
-    for question, options in questions_prakruti.items():
-        st.write(f"**{question}**")
-        user_answers_prakruti[question] = [st.checkbox(option) for option in options]
+    with col1:
+        st.write("## Prakruti Observation")
+        st.write("Fill these based on how you have felt throughout your life")
+        user_answers_prakruti = {}
+        for question, options in questions_prakruti.items():
+            st.write(f"**{question}**")
+            user_answers_prakruti[question] = st.checkbox(options[0])
+            user_answers_prakruti[question] = st.checkbox(options[1])
+            user_answers_prakruti[question] = st.checkbox(options[2])
 
-with col2:
-    st.write("## Vikruti Observation")
-    st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
-    user_answers_vikruti = {}
-    for question, options in questions_vikruti.items():
-        st.write(f"**{question}**")
-        user_answers_vikruti[question] = [st.checkbox(option) for option in options]
+    with col2:
+        st.write("## Vikruti Observation")
+        st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
+        user_answers_vikruti = {}
+        for question, options in questions_vikruti.items():
+            st.write(f"**{question}**")
+            user_answers_vikruti[question] = st.checkbox(options[0])
+            user_answers_vikruti[question] = st.checkbox(options[1])
+            user_answers_vikruti[question] = st.checkbox(options[2])
 
-predict_button = st.button("Predict Dosha Scores")
+    predict_button = st.button("Predict Dosha Scores")
 
-if predict_button:
-    dosha_scores_prakruti = {
-        "VATA": 0,
-        "PITTA": 0,
-        "KAPHA": 0
-    }
+    if predict_button:
+        dosha_scores_prakruti = {
+            "VATA": 0,
+            "PITTA": 0,
+            "KAPHA": 0
+        }
 
-    dosha_scores_vikruti = {
-        "VATA": 0,
-        "PITTA": 0,
-        "KAPHA": 0
-    }
+        dosha_scores_vikruti = {
+            "VATA": 0,
+            "PITTA": 0,
+            "KAPHA": 0
+        }
 
-    # Calculate dosha scores based on user answers
-    for question, user_answer in user_answers_prakruti.items():
-        options = questions_prakruti[question]
-        if user_answer:
-            if user_answer == options[0]:
-                dosha_scores_prakruti["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores_prakruti["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores_prakruti["KAPHA"] += 1
+        # Calculate dosha scores based on user answers
+        for question, user_answer in user_answers_prakruti.items():
+            options = questions_prakruti[question]
+            for option in options:
+                if user_answer:
+                    if option == options[0]:
+                        dosha_scores_prakruti["VATA"] += 1
+                    elif option == options[1]:
+                        dosha_scores_prakruti["PITTA"] += 1
+                    elif option == options[2]:
+                        dosha_scores_prakruti["KAPHA"] += 1
 
-    for question, user_answer in user_answers_vikruti.items():
-        options = questions_vikruti[question]
-        if user_answer:
-            if user_answer == options[0]:
-                dosha_scores_vikruti["VATA"] += 1
-            elif user_answer == options[1]:
-                dosha_scores_vikruti["PITTA"] += 1
-            elif user_answer == options[2]:
-                dosha_scores_vikruti["KAPHA"] += 1
+        for question, user_answer in user_answers_vikruti.items():
+            options = questions_vikruti[question]
+            for option in options:
+                if user_answer:
+                    if option == options[0]:
+                        dosha_scores_vikruti["VATA"] += 1
+                    elif option == options[1]:
+                        dosha_scores_vikruti["PITTA"] += 1
+                    elif option == options[2]:
+                        dosha_scores_vikruti["KAPHA"] += 1
 
-    st.write("### Prakruti Dosha Scores:")
-    for dosha, score in dosha_scores_prakruti.items():
-        st.write(f"{dosha}: {score}")
+        st.write("### Prakruti Dosha Scores:")
+        for dosha, score in dosha_scores_prakruti.items():
+            st.write(f"{dosha}: {score}")
 
-    prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-    st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
+        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
+        st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
-    prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
-    st.bar_chart(prakruti_df.set_index("Dosha"))
+        prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
+        st.bar_chart(prakruti_df.set_index("Dosha"))
 
-    st.write("### Vikruti Dosha Scores:")
-    for dosha, score in dosha_scores_vikruti.items():
-        st.write(f"{dosha}: {score}")
+        st.write("### Vikruti Dosha Scores:")
+        for dosha, score in dosha_scores_vikruti.items():
+            st.write(f"{dosha}: {score}")
 
-    vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
-    st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
+        vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
+        st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
-    vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
-    st.bar_chart(vikruti_df.set_index("Dosha"))
+        vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
+        st.bar_chart(vikruti_df.set_index("Dosha"))
