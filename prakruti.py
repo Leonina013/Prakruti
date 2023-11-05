@@ -110,6 +110,27 @@ advice_text = {
     ]
 }
 
+product_links = {
+    "VATA": [
+        "https://www.amazon.in/BIO-RESURGE-VATA-CARE-Tablet/dp/B07JF24CB4?th=1",
+        "https://www.amazon.in/Resurge-Life-Ayurveda-Dosha-Medicine/dp/B09QSVJ629",
+        "https://www.amazon.com/Ayurvedic-Meal-Planner-Vata-Dosha/dp/B097C4KY34/ref=sr_1_3?keywords=vata+dosha&qid=1699205366&sr=8-3",
+        "https://www.amazon.com/Banyan-Botanicals-Healthy-Vata-Nourishing/dp/B004QC1890/ref=sr_1_1?keywords=vata+dosha&qid=1699205366&sr=8-1"
+    ],
+    "PITTA": [
+        "https://www.amazon.in/BIO-RESURGE-PITTA-CARE-Tablet/dp/B07JDF44LW/ref=sr_1_1?crid=1NN25H8699IR8&keywords=BIO%2BRESURGE%2BLIFE%2BAyurveda%2BPitta%2BBalance%2BMedicine%2B100%25%2BNatural%2Band%2BOrganic&nsdOptOutParam=true&qid=1699205601&s=hpc&sprefix=bio%2Bresurge%2Blife%2Bayurveda%2Bpitta%2Bbalance%2Bmedicine%2B100%25%2Bnatural%2Band%2Borganic%2Chpc%2C268&sr=1-1&th=1",
+        "https://www.amazon.in/Ksheerabala-Ayurvedic-Formulation-Imbalance-Effectively/dp/B08BTT5BMP/ref=sr_1_3_sspa?keywords=pitta+balance&nsdOptOutParam=true&qid=1699205556&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&smid=A360J6YC387ZBZ",
+        "https://www.amazon.in/DR-TALATS-Heartburn-Free-Caps/dp/B0BQHY7YWN/ref=sr_1_4_sspa?keywords=pitta%2Bbalance&nsdOptOutParam=true&qid=1699205556&sr=8-4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+        "https://www.amazon.in/TEACURRY-Pitta-Dosha-Month-Pack/dp/B0C3MQPL3T/ref=sr_1_11?keywords=pitta+balance&nsdOptOutParam=true&qid=1699205556&sr=8-11"
+    ],
+    "KAPHA": [
+        "https://www.amazon.in/Resurge-Life-Ayurveda-Dosha-Medicine/dp/B09QSVJ629/ref=sr_1_2_sspa?keywords=kapha+dosha+medicine&qid=1699205659&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+        "https://www.amazon.in/Zandu-Ashwagandha-Capsules-Goodness-Extracts/dp/B08TPPZCPJ/ref=sr_1_3_sspa?keywords=kapha+dosha+medicine&qid=1699205659&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+        "https://www.amazon.in/Balancing-Ginger-Maintains-Immunity-Cough-30/dp/B07JMDLPXH/ref=sr_1_7?keywords=kapha%2Bdosha%2Bmedicine&qid=1699205659&sr=8-7&th=1",
+        "https://www.amazon.in/Balance-medicine-ayurvedic-balance-Tablets/dp/B0CD7NB3R7/ref=sr_1_6?keywords=kapha+dosha+medicine&qid=1699205659&sr=8-6"
+    ]
+}
+
 if __name__ == '__main__':
     st.set_page_config(
         page_title="Prakruti & Vikruti Constitution Quiz",
@@ -162,6 +183,11 @@ if __name__ == '__main__':
             for line in advice_text[prakruti_dominant_dosha]:
                 st.write(line)
 
+            # Add product links
+            st.write("### Recommended Products for Prakruti Dominance:")
+            for link in product_links[prakruti_dominant_dosha]:
+                st.write(link)
+
     with col2:
         st.write("## Vikruti Observation")
         st.write("###### And then, we delve into the captivating realm of Vikruti, your current blend of the tridosha – an intriguing twist in the tale, quite possibly veering away from your Prakruti's perfect harmony. Imbalanced doshas signify a delicate disarray within, where the exquisite balance of your physical, mental, and spiritual well-being is somewhat awry.")
@@ -194,3 +220,8 @@ if __name__ == '__main__':
             st.write("##### Nutrition advice for Vikruti Dominance:")
             for line in advice_text[vikruti_dominant_dosha]:
                 st.write(line)
+
+            # Add product links
+            st.write("### Recommended Products for Vikruti Dominance:")
+            for link in product_links[vikruti_dominant_dosha]:
+                st.write(link)
