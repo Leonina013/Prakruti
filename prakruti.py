@@ -85,6 +85,31 @@ dosha_scores_vikruti = {
     "KAPHA": 0
 }
 
+advice_text = {
+    "VATA": [
+        "Favor warm, cooked, and easily digestible foods.",
+        "Incorporate plenty of healthy fats such as ghee, coconut oil, and olive oil.",
+        "Include nourishing and grounding foods like sweet potatoes, whole grains (cooked), cooked vegetables, and lentils.",
+        "Drink warm herbal teas (non-caffeinated) like ginger, cinnamon, and licorice.",
+        "Reduce raw foods, cold foods, and excessive caffeine."
+    ],
+    "PITTA": [
+        "Favor cooling foods: Incorporate foods that have a cooling effect on the body.",
+        "Include sweet, bitter, and astringent tastes: Focus on foods with these tastes to balance excess heat.",
+        "Limit spicy, oily, and acidic foods: Reduce or avoid foods that can increase Pitta, such as hot spices, fried foods, and excessive sourness.",
+        "Stay hydrated: Drink cool or room temperature water and herbal teas to balance the heat.",
+        "Enjoy fresh, ripe, and sweet fruits: Opt for sweet fruits like melons, grapes, and sweet berries."
+    ],
+    "KAPHA": [
+        "Warm and light soups with a variety of vegetables.",
+        "Fresh fruits like apples, pears, berries, and pomegranates.",
+        "Whole grains like quinoa, barley, and millet.",
+        "Legumes such as lentils and mung beans.",
+        "Lean proteins like fish and chicken (in moderation).",
+        "Warm herbal teas and spices like ginger, black pepper, and turmeric."
+    ]
+}
+
 if __name__ == '__main__':
     st.set_page_config(
         page_title="Prakruti & Vikruti Constitution Quiz",
@@ -122,7 +147,7 @@ if __name__ == '__main__':
                     st.success(f'Your answer for {question} is: {option}')
 
         prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-        
+
         predict_prakruti = st.button("Predict Prakruti Dosha")
         if predict_prakruti:
             st.write(f"### Prakruti Dosha Scores:")
@@ -130,6 +155,11 @@ if __name__ == '__main__':
             st.write(f"PITTA: {dosha_scores_prakruti['PITTA']}")
             st.write(f"KAPHA: {dosha_scores_prakruti['KAPHA']}")
             st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
+
+            # Add advice based on the most dominant dosha
+            st.write("### Advice for Prakruti Dominance:")
+            for line in advice_text[prakruti_dominant_dosha]:
+                st.write(line)
 
     with col2:
         st.write("## Vikruti Observation")
@@ -149,7 +179,7 @@ if __name__ == '__main__':
                     st.success(f'Your answer for {question} is: {option}')
 
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
-        
+
         predict_vikruti = st.button("Predict Vikruti Dosha")
         if predict_vikruti:
             st.write(f"### Vikruti Dosha Scores:")
@@ -157,3 +187,8 @@ if __name__ == '__main__':
             st.write(f"PITTA: {dosha_scores_vikruti['PITTA']}")
             st.write(f"KAPHA: {dosha_scores_vikruti['KAPHA']}")
             st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
+
+            # Add advice based on the most dominant dosha
+            st.write("### Advice for Vikruti Dominance:")
+            for line in advice_text[vikruti_dominant_dosha]:
+                st.write(line)
