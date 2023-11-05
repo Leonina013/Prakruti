@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
     with col1:
         st.write("## Prakruti Observation")
-        st.write("### In the enchanting tapestry of your existence, Nature has woven a masterpiece, casting you as the singular masterpiece of Prakruti. Your essence, an exquisite fusion of vata, pitta, and kapha, is a symphony only you possess. When you came into being, your genes and karma, a realm unto themselves, conspired to create your Prakruti – the divine alchemy of the tridosha. It's the very essence that molds you, from the graceful contours of your body to the intricate patterns of your thoughts and emotions.")
+        st.write("#### In the enchanting tapestry of your existence, Nature has woven a masterpiece, casting you as the singular masterpiece of Prakruti. Your essence, an exquisite fusion of vata, pitta, and kapha, is a symphony only you possess. When you came into being, your genes and karma, a realm unto themselves, conspired to create your Prakruti – the divine alchemy of the tridosha. It's the very essence that molds you, from the graceful contours of your body to the intricate patterns of your thoughts and emotions.")
         st.write("Fill these based on how you have felt throughout your life")
 
         for question, options in questions_prakruti.items():
@@ -164,7 +164,7 @@ if __name__ == '__main__':
 
     with col2:
         st.write("## Vikruti Observation")
-        st.write("### And then, we delve into the captivating realm of Vikruti, your current blend of the tridosha – an intriguing twist in the tale, quite possibly veering away from your Prakruti's perfect harmony. Imbalanced doshas signify a delicate disarray within, where the exquisite balance of your physical, mental, and spiritual well-being is somewhat awry.")
+        st.write("#### And then, we delve into the captivating realm of Vikruti, your current blend of the tridosha – an intriguing twist in the tale, quite possibly veering away from your Prakruti's perfect harmony. Imbalanced doshas signify a delicate disarray within, where the exquisite balance of your physical, mental, and spiritual well-being is somewhat awry.")
         st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
 
         for question, options in questions_vikruti.items():
