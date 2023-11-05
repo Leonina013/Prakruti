@@ -131,6 +131,7 @@ if __name__ == '__main__':
 
     with col1:
         st.write("## Prakruti Observation")
+        st.write("In the enchanting tapestry of your existence, Nature has woven a masterpiece, casting you as the singular masterpiece of Prakruti. Your essence, an exquisite fusion of vata, pitta, and kapha, is a symphony only you possess. When you came into being, your genes and karma, a realm unto themselves, conspired to create your Prakruti – the divine alchemy of the tridosha. It's the very essence that molds you, from the graceful contours of your body to the intricate patterns of your thoughts and emotions. Prakruti is your unique harmonious blend, the key to unlocking your health, happiness, and inner serenity. It is where you shine brightest, your truest self revealed, a haven of balance and well-being that is exclusively yours.")
         st.write("Fill these based on how you have felt throughout your life")
 
         for question, options in questions_prakruti.items():
