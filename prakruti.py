@@ -143,11 +143,11 @@ if __name__ == '__main__':
             for option, selected in zip(options, user_answers):
                 if selected:
                     if option == options[0]:
-                        dosha_scores_prakruti["VATA"] += 1
+                        dosha_scores_vikruti["VATA"] += 1
                     elif option == options[1]:
-                        dosha_scores_prakruti["PITTA"] += 1
+                        dosha_scores_vikruti["PITTA"] += 1
                     elif option == options[2]:
-                        dosha_scores_prakruti["KAPHA"] += 1
+                        dosha_scores_vikruti["KAPHA"] += 1
                     st.success(f'Your answer for {question} is: {option}')
 
         st.write("### Vikruti Dosha Scores:")
