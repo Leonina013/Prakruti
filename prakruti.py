@@ -25,7 +25,7 @@ questions_prakruti = {
     "Thirst": ["Changeable", "Surplus", "Sparse"],
     "Elimination": ["Constipation", "Loose", "Thick, oily, sluggish"],
     "Physical Activity": ["Hyperactive", "Adequate", "Slow"],
-    "Mental Activity": ["Hyperactive", "Fair", "Dull, slow"],
+    "Mental Activity": ["Overlyactive", "Fair", "Dull, slow"],
     "Emotions": ["Anxiety, fear, uncertainty", "Anger, hate, jealousy", "Calm, greedy, attachment"],
     "Faith": ["Variable", "Extremist", "Consistent"],
     "Intellect": ["Quick but faulty response", "Accurate response", "Slow, exact"],
