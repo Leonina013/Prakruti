@@ -92,7 +92,7 @@ if __name__ == '__main__':
         layout="wide"
     )
 
-   st.title("Prakruti & Vikruti Constitution Quiz")
+    st.title("Prakruti & Vikruti Constitution Quiz")
 
     st.sidebar.markdown(
         f'<div style="display: flex; flex-direction: column; align-items: center;">'
