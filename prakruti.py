@@ -158,7 +158,7 @@ if __name__ == '__main__':
             st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
             # Add advice based on the most dominant dosha
-            st.write("### Advice for Prakruti Dominance:")
+            st.write("##### Nutrition advice for Prakruti Dominance:")
             for line in advice_text[prakruti_dominant_dosha]:
                 st.write(line)
 
@@ -191,6 +191,6 @@ if __name__ == '__main__':
             st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
             # Add advice based on the most dominant dosha
-            st.write("### Advice for Vikruti Dominance:")
+            st.write("##### Nutrition advice for Vikruti Dominance:")
             for line in advice_text[vikruti_dominant_dosha]:
                 st.write(line)
