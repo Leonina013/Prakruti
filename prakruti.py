@@ -92,7 +92,7 @@ if __name__ == '__main__':
         layout="wide"
     )
 
-    st.title("Prakruti & Vikruti Constitution Quiz")
+   st.title("Prakruti & Vikruti Constitution Quiz")
 
     st.sidebar.markdown(
         f'<div style="display: flex; flex-direction: column; align-items: center;">'
@@ -107,7 +107,6 @@ if __name__ == '__main__':
     with col1:
         st.write("## Prakruti Observation")
         st.write("Fill these based on how you have felt throughout your life")
-        prakruti_scores_displayed = st.empty()  # Create a placeholder for dosha scores
 
         for question, options in questions_prakruti.items():
             st.write(f"**{question}**")
@@ -122,10 +121,16 @@ if __name__ == '__main__':
                         dosha_scores_prakruti["KAPHA"] += 1
                     st.success(f'Your answer for {question} is: {option}')
 
+        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
+        st.write(f"### Prakruti Dosha Scores:")
+        st.write(f"VATA: {dosha_scores_prakruti['VATA']}")
+        st.write(f"PITTA: {dosha_scores_prakruti['PITTA']}")
+        st.write(f"KAPHA: {dosha_scores_prakruti['KAPHA']}")
+        st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
+
     with col2:
         st.write("## Vikruti Observation")
         st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
-        vikruti_scores_displayed = st.empty()  # Create a placeholder for dosha scores
 
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
@@ -140,25 +145,11 @@ if __name__ == '__main__':
                         dosha_scores_vikruti["KAPHA"] += 1
                     st.success(f'Your answer for {question} is: {option}')
 
-    predict_button = st.button("Predict Dosha")  # Add a "Predict Dosha" button
-
-    if predict_button:
-        # Display dosha scores and dominant doshas
-        prakruti_scores_displayed.write("### Prakruti Dosha Scores:")
-        for dosha, score in dosha_scores_prakruti.items():
-            prakruti_scores_displayed.write(f"{dosha}: {score}")
-
-        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-        prakruti_scores_displayed.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
-
-        vikruti_scores_displayed.write("### Vikruti Dosha Scores:")
-        for dosha, score in dosha_scores_vikruti.items():
-            vikruti_scores_displayed.write(f"{dosha}: {score}")
-
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
-        vikruti_scores_displayed.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
-        vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
+        st.write(f"### Vikruti Dosha Scores:")
+        st.write(f"VATA: {dosha_scores_vikruti['VATA']}")
+        st.write(f"PITTA: {dosha_scores_vikruti['PITTA']}")
+        st.write(f"KAPHA: {dosha_scores_vikruti['KAPHA']}")
         st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
-        vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
-        st.bar_chart(vikruti_df.set_index("Dosha"))
+    predict_button = st.button("Predict Dosha")
