@@ -114,7 +114,7 @@ with col1:
     user_answers_prakruti = {}
     for question, options in questions_prakruti.items():
         st.write(f"**{question}**")
-        user_answers_prakruti[question] = st.radio(f"Select the option which fits best for the condition of your {question}", options)
+        user_answers_prakruti[question] = [st.checkbox(option) for option in options]
 
 with col2:
     st.write("## Vikruti Observation")
@@ -122,7 +122,7 @@ with col2:
     user_answers_vikruti = {}
     for question, options in questions_vikruti.items():
         st.write(f"**{question}**")
-        user_answers_vikruti[question] = st.radio(f"Select the option which fits best for the condition of your {question}", options)
+        user_answers_vikruti[question] = [st.checkbox(option) for option in options]
 
 predict_button = st.button("Predict Dosha Scores")
 
