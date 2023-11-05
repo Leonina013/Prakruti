@@ -95,22 +95,20 @@ if __name__ == '__main__':
     st.title("Prakruti & Vikruti Constitution Quiz")
 
     st.sidebar.markdown(
-    f'<div style="display: flex; flex-direction: column; align-items: center;">'
-    f'<img src="https://i.imgur.com/7KSTJFb.png" alt="QR Code" width="300">'
-    f'<p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Scan to analyze your core Dosha</p>'
-    f'</div>',
-    unsafe_allow_html=True
-)
+        f'<div style="display: flex; flex-direction: column; align-items: center;">'
+        f'<img src="https://i.imgur.com/7KSTJFb.png" alt="QR Code" width="300">'
+        f'<p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Scan to analyze your core Dosha</p>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
 
-
-
-
-    
     col1, col2 = st.columns(2)
 
     with col1:
         st.write("## Prakruti Observation")
         st.write("Fill these based on how you have felt throughout your life")
+        prakruti_scores_displayed = st.empty()  # Create a placeholder for dosha scores
+
         for question, options in questions_prakruti.items():
             st.write(f"**{question}**")
             user_answers = [st.checkbox(option) for option in options]
@@ -124,19 +122,11 @@ if __name__ == '__main__':
                         dosha_scores_prakruti["KAPHA"] += 1
                     st.success(f'Your answer for {question} is: {option}')
 
-        st.write("### Prakruti Dosha Scores:")
-        for dosha, score in dosha_scores_prakruti.items():
-            st.write(f"{dosha}: {score}")
-
-        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-        st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
-
-        prakruti_df = pd.DataFrame(list(dosha_scores_prakruti.items()), columns=["Dosha", "Prakruti Score"])
-        st.bar_chart(prakruti_df.set_index("Dosha"))
-
     with col2:
         st.write("## Vikruti Observation")
         st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
+        vikruti_scores_displayed = st.empty()  # Create a placeholder for dosha scores
+
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
             user_answers = [st.checkbox(option) for option in options]
@@ -150,10 +140,23 @@ if __name__ == '__main__':
                         dosha_scores_vikruti["KAPHA"] += 1
                     st.success(f'Your answer for {question} is: {option}')
 
-        st.write("### Vikruti Dosha Scores:")
-        for dosha, score in dosha_scores_vikruti.items():
-            st.write(f"{dosha}: {score}")
+    predict_button = st.button("Predict Dosha")  # Add a "Predict Dosha" button
 
+    if predict_button:
+        # Display dosha scores and dominant doshas
+        prakruti_scores_displayed.write("### Prakruti Dosha Scores:")
+        for dosha, score in dosha_scores_prakruti.items():
+            prakruti_scores_displayed.write(f"{dosha}: {score}")
+
+        prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
+        prakruti_scores_displayed.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
+
+        vikruti_scores_displayed.write("### Vikruti Dosha Scores:")
+        for dosha, score in dosha_scores_vikruti.items():
+            vikruti_scores_displayed.write(f"{dosha}: {score}")
+
+        vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
+        vikruti_scores_displayed.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
         st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
 
