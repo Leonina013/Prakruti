@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
 
     
-    col1, col2 = st.columns(2)
+     col1, col2 = st.columns(2)
 
     with col1:
         st.write("## Prakruti Observation")
@@ -120,7 +120,7 @@ if __name__ == '__main__':
 
     with col2:
         st.write("## Vikruti Observation")
-        st.write("Fill these based on how you have felt recently. Ask a friend for unbiased opinion")
+        st.write("Fill these based on how you have felt recently. Ask a friend for an unbiased opinion")
         user_answers_vikruti = {}
         for question, options in questions_vikruti.items():
             st.write(f"**{question}**")
