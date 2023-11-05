@@ -70,7 +70,7 @@ questions_vikruti = {
     "Dreams": ["Plenty, active, fearful", "Fiery, violent", "Watery, romantic"],
     "Emotions": ["Anxiety, fear, loneliness", "Judgment, criticism, anger, hate, jealousy", "Attachment, greed, depression"],
     "Intellect": ["Fast but faulty response", "Abrupt but accurate response", "Slow but exact response"],
-    "Memory": ["Recent good, remote poor", "Moderate, distinct", "Slow, remote very good"]
+    "Memory": ["Short term good, Long term poor", "Moderate, distinct, effective", "Slow, Long term very good"]
 }
 
 dosha_scores_prakruti = {
