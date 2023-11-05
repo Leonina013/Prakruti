@@ -48,7 +48,7 @@ questions_vikruti = {
     "Eyes": ["Dry, restless, blinking", "Red, burning, hypersensitive to light", "Pale, swollen, sticky, excessive lacrimation"],
     "Ears": ["Ringing (tinnitus)", "Pain, infections", "Clogged, discharge"],
     "Nose, Sinuses": ["Dry, crusty", "Red, inflamed", "Congestion"],
-    "Lips": ["Dry, cracked", "Red, inflamed", "Pale, oily"],
+    "Lips": ["Dry, cracked", "Red & inflamed", "Pale, oily"],
     "Mouth": ["Dry, receding gums", "Red, inflamed and tender gums", "Excessive salivation"],
     "Teeth": ["Cavities, receding gums, cracked enamel", "Yellow, wasted enamel", "Sweet tooth, strong enamel"],
     "Tongue": ["Dry, cracked, tremors, dark coating", "Red, inflamed, yellow coating", "Pale, thick white coating"],
