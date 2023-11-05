@@ -13,7 +13,7 @@ questions_prakruti = {
     "Skin": ["Thin, dry, cold, rough, dark", "Smooth, oily, warm, rosy", "Thick, oily, cool, white, pale"],
     "Hair": ["Dry, brown, black, knotted, brittle, scarce", "Straight, oily, blond, gray, red, bald", "Thick, curly, oily, wavy, luxuriant"],
     "Nails": ["Dry, rough, brittle, break easily", "Sharp, flexible, pink, lustrous", "Thick, oily, smooth, polished"],
-    "Neck": ["Thin, tall", "Medium", "Big, folded"],
+    "Neck": ["Thin, tall", "Medium, Moderate", "Big, folded"],
     "Chest": ["Flat, sunken", "Moderate", "Expanded, round"],
     "Belly": ["Thin, flat, sunken", "Moderate", "Big, pot-bellied"],
     "Belly-button": ["Small, irregular, herniated", "Oval, superficial", "Big, deep, round, stretched"],
