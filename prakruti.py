@@ -63,7 +63,7 @@ questions_vikruti = {
     "Sex Drive": ["Premature orgasm", "Painful sex", "Low libido"],
     "Liver & Spleen": ["Palpable (double normal size)", "Tender (Soft)", "Enlarged, fatty degenerative changes"],
     "Voice": ["Dry, exhausted, explosive, whispering, stuttering", "Sharp, penetrating, metallic", "Deep, hoarse, drum-like"],
-    "Speech": ["Rapid, abrupt, unclear ideas", "Sharp, determined, premeditated", "Slow, monotonous"],
+    "Speech": ["Rapid, abrupt, unclear ideas", "Sharp, determined, premeditated", "Slow, uninterested"],
     "Breathing": ["Nervous, diaphragmatic (sympathetic nervous system)", "Aggressive, intercostals, tight in chest", "Slow, abdominal, apnea tendency"],
     "Allergies": ["Dry wheezing, breathlessness", "Hives, rashes, urticaria", "Congestion, runny nose"],
     "Sleep": ["Insomnia, broken", "Difficult entering, insufficient", "Excessive, drowsiness"],
