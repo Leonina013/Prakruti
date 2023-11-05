@@ -122,7 +122,7 @@ if __name__ == '__main__':
     st.sidebar.markdown(
         f'<div style="display: flex; flex-direction: column; align-items: center;">'
         f'<img src="https://i.imgur.com/7KSTJFb.png" alt="QR Code" width="300">'
-        f'<p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Scan to analyze your core Dosha</p>'
+        f'<p style="font-weight: bold; font-size: 16px; margin-top: 10px;">Want to delve into more detail about your dosha and get personalized advice? Scan and find out.</p>'
         f'</div>',
         unsafe_allow_html=True
     )
