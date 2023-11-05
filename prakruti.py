@@ -57,7 +57,7 @@ questions_vikruti = {
     "Appetite": ["Variable, anorexia nervosa", "Strong, unbearable, hypoglycemia", "Low, steady"],
     "Digestion": ["Irregular, gas and bloating", "Quick, acid indigestion", "Slow, prolonged, indigestion"],
     "Metabolism": ["Irregular", "Extremely Active", "Fairly Slow"],
-    "Thirst": ["Variable", "Strong", "Low"],
+    "Thirst": ["Varying", "Decently Strong", "Decently Low"],
     "Elimination": ["Constipation, dry, hard stools", "Loose stools, diarrhea, burning", "Heavy, oily stools with mucus"],
     "Energy Level": ["Hyperactive, exhausts quickly", "Intense, exhausts from excessive thinking", "Low, exhaustion due to excess weight"],
     "Sex Drive": ["Premature orgasm", "Painful sex", "Low libido"],
