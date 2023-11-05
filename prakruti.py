@@ -61,7 +61,7 @@ questions_vikruti = {
     "Elimination": ["Constipation, dry, hard stools", "Loose stools, diarrhea, burning", "Heavy, oily stools with mucus"],
     "Energy Level": ["Hyperactive, exhausts quickly", "Intense, exhausts from excessive thinking", "Low, exhaustion due to excess weight"],
     "Sex Drive": ["Premature orgasm", "Painful sex", "Low libido"],
-    "Liver & Spleen": ["Palpable (double normal size)", "Tender", "Enlarged, fatty degenerative changes"],
+    "Liver & Spleen": ["Palpable (double normal size)", "Tender (Soft)", "Enlarged, fatty degenerative changes"],
     "Voice": ["Dry, exhausted, explosive, whispering, stuttering", "Sharp, penetrating, metallic", "Deep, hoarse, drum-like"],
     "Speech": ["Rapid, abrupt, unclear ideas", "Sharp, determined, premeditated", "Slow, monotonous"],
     "Breathing": ["Nervous, diaphragmatic (sympathetic nervous system)", "Aggressive, intercostals, tight in chest", "Slow, abdominal, apnea tendency"],
