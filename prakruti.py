@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
 
     
-    col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
 with col1:
     st.write("## Prakruti Observation")
@@ -179,7 +179,3 @@ if predict_button:
 
     vikruti_df = pd.DataFrame(list(dosha_scores_vikruti.items()), columns=["Dosha", "Vikruti Score"])
     st.bar_chart(vikruti_df.set_index("Dosha"))
-            st.write(f"{dosha}: {score}")
-
-        vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
-        st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
