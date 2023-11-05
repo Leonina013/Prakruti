@@ -113,7 +113,7 @@ if __name__ == '__main__':
         st.write("Fill these based on how you have felt throughout your life")
         for question, options in questions_prakruti.items():
             st.write(f"**{question}**")
-            user_answer = st.checkbox(f"Select the option which fits best for the condition of your {question}")
+            user_answer = st.checkbox(f"Select the option which fits best for the condition of your {question}",options)
             if user_answer:
                 if user_answer == options[0]:
                     dosha_scores_prakruti["VATA"] += 1
