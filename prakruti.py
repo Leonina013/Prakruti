@@ -3,7 +3,7 @@ import pandas as pd
 
 questions_prakruti = {
     "Body size": ["Slim", "Medium", "Large"],
-    "Body weight": ["Low", "Medium", "Overweight"],
+    "Body weight": ["Low", "Moderate", "Overweight"],
     "Chin": ["Thin, angular", "Tapering", "Rounded, double"],
     "Cheeks": ["Wrinkled, sunken", "Smooth flat", "Rounded, plump"],
     "Eyes": ["Small, sunken, dry, active, black/brown, nervous", "Sharp, bright, gray, green, yellow/red, sensitive to light", "Big, beautiful, blue, calm, loving"],
