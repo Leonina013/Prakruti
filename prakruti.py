@@ -122,11 +122,14 @@ if __name__ == '__main__':
                     st.success(f'Your answer for {question} is: {option}')
 
         prakruti_dominant_dosha = max(dosha_scores_prakruti, key=dosha_scores_prakruti.get)
-        st.write(f"### Prakruti Dosha Scores:")
-        st.write(f"VATA: {dosha_scores_prakruti['VATA']}")
-        st.write(f"PITTA: {dosha_scores_prakruti['PITTA']}")
-        st.write(f"KAPHA: {dosha_scores_prakruti['KAPHA']}")
-        st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
+        
+        predict_prakruti = st.button("Predict Prakruti Dosha")
+        if predict_prakruti:
+            st.write(f"### Prakruti Dosha Scores:")
+            st.write(f"VATA: {dosha_scores_prakruti['VATA']}")
+            st.write(f"PITTA: {dosha_scores_prakruti['PITTA']}")
+            st.write(f"KAPHA: {dosha_scores_prakruti['KAPHA']}")
+            st.write(f"### Prakruti Dominant Dosha: {prakruti_dominant_dosha}")
 
     with col2:
         st.write("## Vikruti Observation")
@@ -146,10 +149,11 @@ if __name__ == '__main__':
                     st.success(f'Your answer for {question} is: {option}')
 
         vikruti_dominant_dosha = max(dosha_scores_vikruti, key=dosha_scores_vikruti.get)
-        st.write(f"### Vikruti Dosha Scores:")
-        st.write(f"VATA: {dosha_scores_vikruti['VATA']}")
-        st.write(f"PITTA: {dosha_scores_vikruti['PITTA']}")
-        st.write(f"KAPHA: {dosha_scores_vikruti['KAPHA']}")
-        st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
-
-    predict_button = st.button("Predict Dosha")
+        
+        predict_vikruti = st.button("Predict Vikruti Dosha")
+        if predict_vikruti:
+            st.write(f"### Vikruti Dosha Scores:")
+            st.write(f"VATA: {dosha_scores_vikruti['VATA']}")
+            st.write(f"PITTA: {dosha_scores_vikruti['PITTA']}")
+            st.write(f"KAPHA: {dosha_scores_vikruti['KAPHA']}")
+            st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
