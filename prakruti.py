@@ -232,7 +232,7 @@ st.markdown(
         .col {
             flex: 1;
             padding: 10px;
-            border-right: 1px solid #ccc; /* Vertical line between columns */
+            border-right: 2px solid red; /* Thicker red-colored vertical line between columns */
         }
         .col:last-child {
             border-right: none; /* Remove line on the last column */
@@ -242,11 +242,11 @@ st.markdown(
         unsafe_allow_html=True
     )
 
-st.write("<div class='col-container'>", unsafe_allow_html=True)
-with col1:
-     pass
-with col2:
-     pass
-with col3:
-     pass
-st.write("</div>", unsafe_allow_html=True)
+    st.write("<div class='col-container'>", unsafe_allow_html=True)
+    with col1:
+        pass
+    with col2:
+        pass
+    with col3:
+        pass
+    st.write("</div>", unsafe_allow_html=True)
