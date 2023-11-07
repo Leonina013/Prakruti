@@ -222,7 +222,8 @@ with col3:
             for link in product_links[vikruti_dominant_dosha]:
                 st.write(link)
 
-col1.markdown("""
+# Create vertical lines at the end of columns
+ col1.markdown("""
         <style>
         .st-ax {
             border-right: 2px solid red;
@@ -242,7 +243,7 @@ col2.markdown("""
         </style>
     """, unsafe_allow_html=True)
 
-  # Set a maximum width for the columns
+    # Set a maximum width for the columns
 col1.markdown("<style>.st-ax { max-width: 30%; }</style>", unsafe_allow_html=True)
 col2.markdown("<style>.st-ax { max-width: 40%; }</style>", unsafe_allow_html=True)
     
