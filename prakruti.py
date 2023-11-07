@@ -213,8 +213,7 @@ if __name__ == '__main__':
             vikruti_calculations_done = True
 
             if vikruti_calculations_done:
-            # Display product links in the sidebar only when calculations are done
-            st.sidebar.write("### Recommended Products for Vikruti Dominance:")
-            for link in product_links[vikruti_dominant_dosha]:
+             st.sidebar.write("### Recommended Products for Vikruti Dominance:")
+             for link in product_links[vikruti_dominant_dosha]:
                 st.sidebar.write(link)
 
