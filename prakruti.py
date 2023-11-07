@@ -221,6 +221,32 @@ with col3:
             st.write("###### Recommended Products for Vikruti Dominance:")
             for link in product_links[vikruti_dominant_dosha]:
                 st.write(link)
-# Add line separators between columns
-st.write("<hr style='border: 1px solid #ccc;'>", unsafe_allow_html=True)
-st.write("<hr style='border: 1px solid #ccc;'>", unsafe_allow_html=True)
+
+st.markdown(
+        """
+        <style>
+        .col-container {
+            display: flex;
+            align-items: stretch;
+        }
+        .col {
+            flex: 1;
+            padding: 10px;
+            border-right: 1px solid #ccc; /* Vertical line between columns */
+        }
+        .col:last-child {
+            border-right: none; /* Remove line on the last column */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write("<div class='col-container'>", unsafe_allow_html=True)
+    with col1:
+        pass
+    with col2:
+        pass
+    with col3:
+        pass
+    st.write("</div>", unsafe_allow_html=True)
