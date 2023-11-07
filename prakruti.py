@@ -222,23 +222,29 @@ with col3:
             for link in product_links[vikruti_dominant_dosha]:
                 st.write(link)
 
-col1.markdown("""<style>
-                    .st-aj {
-                        border-right: 2px solid red;
-                        padding-right: 12px;
-                    }
-                    </style>""", unsafe_allow_html=True)
+col1.markdown("""
+        <style>
+        .st-ax {
+            border-right: 2px solid red;
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-col2.markdown("""<style>
-                    .st-aj {
-                        border-right: 2px solid red;
-                        padding-right: 12px;
-                    }
-                    </style>""", unsafe_allow_html=True)
+col2.markdown("""
+        <style>
+        .st-ax {
+            border-right: 2px solid red;
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-    # Set a maximum width for the columns
-col1.markdown("<style>.st-aj { max-width: 30%; }</style>", unsafe_allow_html=True)
-col2.markdown("<style>.st-aj { max-width: 40%; }</style>", unsafe_allow_html=True)
+  # Set a maximum width for the columns
+col1.markdown("<style>.st-ax { max-width: 30%; }</style>", unsafe_allow_html=True)
+col2.markdown("<style>.st-ax { max-width: 40%; }</style>", unsafe_allow_html=True)
     
 
 
