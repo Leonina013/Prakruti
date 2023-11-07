@@ -215,13 +215,10 @@ if __name__ == '__main__':
             st.write(f"PITTA: {dosha_scores_vikruti['PITTA']}")
             st.write(f"KAPHA: {dosha_scores_vikruti['KAPHA']}")
             st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
+            vikruti_calculations_done = True
 
-            # Add advice based on the most dominant dosha
-            st.write("##### Nutrition advice for Vikruti Dominance:")
-            for line in advice_text[vikruti_dominant_dosha]:
-                st.write(line)
-
-            # Add product links
-            st.write("### Recommended Products for Vikruti Dominance:")
+            if vikruti_calculations_done:
+            # Display product links in the sidebar only when calculations are done
+            st.sidebar.write("### Recommended Products for Vikruti Dominance:")
             for link in product_links[vikruti_dominant_dosha]:
-                st.write(link)
+                st.sidebar.write(link)
