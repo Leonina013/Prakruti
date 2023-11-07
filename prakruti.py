@@ -183,11 +183,6 @@ if __name__ == '__main__':
             for line in advice_text[prakruti_dominant_dosha]:
                 st.write(line)
 
-            # Add product links
-            st.write("### Recommended Products for Prakruti Dominance:")
-            for link in product_links[prakruti_dominant_dosha]:
-                st.write(link)
-
     with col2:
         st.write("## Vikruti Observation")
         st.write("###### And then, we delve into the captivating realm of Vikruti, your current blend of the tridosha – an intriguing twist in the tale, quite possibly veering away from your Prakruti's perfect harmony. Imbalanced doshas signify a delicate disarray within, where the exquisite balance of your physical, mental, and spiritual well-being is somewhat awry.")
@@ -222,3 +217,4 @@ if __name__ == '__main__':
             st.sidebar.write("### Recommended Products for Vikruti Dominance:")
             for link in product_links[vikruti_dominant_dosha]:
                 st.sidebar.write(link)
+
