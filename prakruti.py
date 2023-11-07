@@ -242,11 +242,11 @@ st.markdown(
         unsafe_allow_html=True
     )
 
-    st.write("<div class='col-container'>", unsafe_allow_html=True)
-    with col1:
-        pass
-    with col2:
-        pass
-    with col3:
-        pass
-    st.write("</div>", unsafe_allow_html=True)
+st.write("<div class='col-container'>", unsafe_allow_html=True)
+with col1:
+     pass
+with col2:
+     pass
+with col3:
+     pass
+st.write("</div>", unsafe_allow_html=True)
