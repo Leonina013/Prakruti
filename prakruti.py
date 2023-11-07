@@ -221,4 +221,6 @@ with col3:
             st.write("###### Recommended Products for Vikruti Dominance:")
             for link in product_links[vikruti_dominant_dosha]:
                 st.write(link)
-
+# Add line separators between columns
+    st.write("<hr style='border: 1px solid #ccc;'>", unsafe_allow_html=True)
+    st.write("<hr style='border: 1px solid #ccc;'>", unsafe_allow_html=True)
