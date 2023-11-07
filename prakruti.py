@@ -148,7 +148,7 @@ if __name__ == '__main__':
         unsafe_allow_html=True
     )
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns([1, 2, 1])
 
     with col1:
         st.write("## Prakruti Observation")
@@ -216,9 +216,9 @@ if __name__ == '__main__':
             for line in advice_text[vikruti_dominant_dosha]:
                 st.write(line)
 
-# Display product links in the right sidebar only when the button is pressed
-if predict_vikruti:
-    st.sidebar.write("### Recommended Products for Vikruti Dominance:")
-    for link in product_links[vikruti_dominant_dosha]:
-        st.sidebar.write(link)
+with col3:
+        if predict_vikruti:
+            st.write("### Recommended Products for Vikruti Dominance:")
+            for link in product_links[vikruti_dominant_dosha]:
+                st.write(link)
 
