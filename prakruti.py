@@ -212,8 +212,13 @@ if __name__ == '__main__':
             st.write(f"### Vikruti Dominant Dosha: {vikruti_dominant_dosha}")
             vikruti_calculations_done = True
 
-            if vikruti_calculations_done:
-             st.sidebar.write("### Recommended Products for Vikruti Dominance:")
-             for link in product_links[vikruti_dominant_dosha]:
-                st.sidebar.write(link)
+            st.write("##### Nutrition advice for Vikruti Dominance:")
+            for line in advice_text[vikruti_dominant_dosha]:
+                st.write(line)
+
+# Display product links in the right sidebar only when the button is pressed
+if predict_vikruti:
+    st.sidebar.write("### Recommended Products for Vikruti Dominance:")
+    for link in product_links[vikruti_dominant_dosha]:
+        st.sidebar.write(link)
 
