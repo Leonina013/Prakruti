@@ -229,7 +229,7 @@ col1.markdown("""<style>
                     }
                     </style>""", unsafe_allow_html=True)
 
-    col2.markdown("""<style>
+col2.markdown("""<style>
                     .st-aj {
                         border-right: 2px solid red;
                         padding-right: 12px;
@@ -237,8 +237,8 @@ col1.markdown("""<style>
                     </style>""", unsafe_allow_html=True)
 
     # Set a maximum width for the columns
-    col1.markdown("<style>.st-aj { max-width: 30%; }</style>", unsafe_allow_html=True)
-    col2.markdown("<style>.st-aj { max-width: 40%; }</style>", unsafe_allow_html=True)
+col1.markdown("<style>.st-aj { max-width: 30%; }</style>", unsafe_allow_html=True)
+col2.markdown("<style>.st-aj { max-width: 40%; }</style>", unsafe_allow_html=True)
     
 
 
