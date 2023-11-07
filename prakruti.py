@@ -218,7 +218,7 @@ if __name__ == '__main__':
 
 with col3:
         if predict_vikruti:
-            st.write("### Recommended Products for Vikruti Dominance:")
+            st.write("###### Recommended Products for Vikruti Dominance:")
             for link in product_links[vikruti_dominant_dosha]:
                 st.write(link)
 
